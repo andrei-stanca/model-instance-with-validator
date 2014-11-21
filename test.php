@@ -16,7 +16,7 @@ class TrustPilotData
 {
 	#
 	#/Property that indicates whether the model structure is ok
-	static $VALIDITY = FALSE;
+	public $VALIDITY = FALSE;
 	#
 	#/Property that holds the errors encountered while building the Object
 	static $EXCEPTION = FALSE;
@@ -114,7 +114,8 @@ class TrustPilotDataValidator
 											'it-IT',
 											'nb-NO',
 											'nl-NL',
-											'sv-SE'
+											'sv-SE',
+											'en-US',
 											);
 
 
@@ -201,7 +202,7 @@ class ResponseInjector
 	{
 		$this->MODEL = $MODEL;
 		$MODEL->response =	array(
-								'success' 	=>	$MODEL::$VALIDITY,
+								'success' 	=>	$MODEL->VALIDITY,
 								'response'	=>	$this->formatObjectInformation()
 							);
 	}
